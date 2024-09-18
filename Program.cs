@@ -10,13 +10,10 @@ using System.Collections.Generic;
 namespace TacoBellParser
 {
     internal class Program
-
-
     {
+        
         static readonly ILog logger = new TacoLogger();
         const string csvPath = "TacoBell-US-AL.csv";
-
-
 
 
         static void Main(string[] args)
@@ -29,16 +26,17 @@ namespace TacoBellParser
 
             string[] lines = File.ReadAllLines(csvPath);
 
-            // This will display the first item in your lines array
-            //logger.LogInfo($"Lines: {lines[0]}");
+            
 
-            // new instance of the TacoParser class
+            
             TacoParser parser = new TacoParser();
 
 
-            //ITrackable[] locations = lines.Select(parser.Parse).ToArray();
+            
             ITrackable[] locations = lines.Select(line => parser.Parse(line)).ToArray();
+
             List<ITrackable> tacoList = new List<ITrackable>();
+
             foreach (var line in lines)
             {
                 tacoList.Add(parser.Parse(line));
@@ -57,6 +55,7 @@ namespace TacoBellParser
             {
                 ITrackable locA = locations[i];
                 GeoCoordinate corA = new GeoCoordinate(locA.Location.Latitude, locA.Location.Longitude);
+
                 for (int j = 0; j < locations.Length; j++)
                 {
                     ITrackable locB = locations[j];
@@ -70,6 +69,9 @@ namespace TacoBellParser
                     }
                 }
             }
+
+            Console.WriteLine($"{tb1.Name} and {tb2.Name} are the two Taco Bells located furthest from each other.");
+            Console.WriteLine($"The distance in meters between the two Taco Bells is {distance}");
 
             
 
