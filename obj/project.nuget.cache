@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ah/lIjecNRE=",
+  "dgSpecHash": "kyKFyBMFN9I=",
   "success": true,
   "projectFilePath": "C:\\Users\\dougl\\OneDrive\\Desktop\\projects\\TacoBellParser\\TacoBellParser.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\dougl\\.nuget\\packages\\geocoordinate.netcore\\1.0.0.1\\geocoordinate.netcore.1.0.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
